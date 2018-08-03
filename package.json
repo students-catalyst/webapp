@@ -1,0 +1,22 @@
+{
+  "name": "bioskop-kampus",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.11.0",
+    "pug": "^2.0.0-beta11",
+    "serve-favicon": "^2.5.0"
+  },
+  "description": "A simple [Express](http://expressjs.com/)-based app to test [Node.js](http://nodejs.org/) support.",
+  "main": "server.",
+  "author": "",
+  "license": "ISC"
+}
