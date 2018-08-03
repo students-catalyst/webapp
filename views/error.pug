@@ -1,6 +1,17 @@
 extends layout
 
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+block prepend content
+  div(class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column")
+    header(class="masthead mb-auto")
+      div(class="inner")
+        h3(class="masthead-brand") #{error.status} #{message}
+                
+    main(role="main" class="inner cover bks")
+      pre #{error.stack}
+
+    footer(class="mastfoot mt-auto")
+      div(class="inner")
+        p Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.
+
+
+          
