@@ -1,0 +1,64 @@
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+ 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    visibility: hidden;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    visibility: hidden;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.bks {
+  margin-left : -2rem;
+  overflow-y: auto;
+}
+
+.bks ul {
+  list-style-type: none;
+}
+
+.bks img {
+  width: 100%;
+  height: auto;
+}
+
+.bks ul li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bks button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  color: #fff;
+}
+
+.modal {
+  color:#333;
+}
+
+.modal img {
+  width: 100%;
+  height: auto;
+}
+
+pre {
+    color:white;
+}
