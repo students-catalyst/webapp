@@ -1,9 +1,11 @@
 extends layout
 
 block cover-header  
-  h3(class="masthead-brand") #{title}
+  h3(class="masthead-brand")
+    a(class="nav-link" href="./") #{title}
   nav(class="nav nav-masthead justify-content-center")
     a(class="nav-link" href="./login") Login
+    a(class="nav-link" href="./register") Register
 
 block cover-main  
 
