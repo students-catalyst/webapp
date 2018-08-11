@@ -1,0 +1,30 @@
+extends layout
+
+block cover-header  
+  h3(class="masthead-brand")
+    a(class="nav-link" href="./") #{title}
+  nav(class="nav nav-masthead justify-content-center")
+    a(class="nav-link" href="./login") Login
+    a(class="nav-link" href="./register") Register
+
+block cover-main
+    form(action="./register" method="post")
+        div(class="form-group")
+            label(for="exampleInputEmail1") Email
+            input(type="email" class="form-control" id="emailInput" placeholder="Email" name="emailInput")
+        div(class="form-group")
+            label(for="exampleInputPassword1") Password
+            input(type="password" class="form-control" id="passwordInput1" placeholder="Password" name="passwordInput1")
+        div(class="form-group")
+            label(for="exampleInputPassword2") Konfirmasi Password
+            input(type="password" class="form-control" id="passwordInput2" placeholder="Konfirmasi Password" name="passwordInput2")
+        div(class="form-group")
+            label(for="exampleInputEmail1") Nama Lengkap
+            input(type="text" class="form-control" id="namaInput" placeholder="Nama Lengkap" name="namaInput")
+        div(class="form-group")
+            label(for="exampleInputEmail1") NIK
+            input(type="number" min="0" max="9999999999999999" class="form-control" id="nikInput" placeholder="Nomor Induk Kependudukan" name="nikInput")
+        button(type="submit" class="btn btn-primary") Register
+
+block cover-footer
+  p Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.
