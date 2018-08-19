@@ -206,6 +206,7 @@ append content
             hp : $('#hpInput').val(),
             info : info
           };
+          console.log('payload');
           $('#modalLong').modal('hide');              
           socket.emit('bookKursi', payload);
         }
