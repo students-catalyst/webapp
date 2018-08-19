@@ -2,28 +2,33 @@ extends layout
 
 block cover-header  
   h3(class="masthead-brand")
-    a(class="nav-link" href="./") #{title}
+    a(class="nav-link" href="/")
+      span(class="fas fa-arrow-left")
+      |  Back
   nav(class="nav nav-masthead justify-content-center")
-    a(class="nav-link" href="./login") Login
-    a(class="nav-link" href="./register") Register
+    a(class="nav-link" href="/login") Login
+    a(class="nav-link" href="/register") Register
 
 block cover-main
+    if (message)
+        div(class="alert alert-danger" role="alert") #{message}
+            
     form(action="./register" method="post")
         div(class="form-group")
-            label(for="exampleInputEmail1") Email
-            input(type="email" class="form-control" id="emailInput" placeholder="Email" name="emailInput")
+            label(for="username") Username
+            input(type="text" class="form-control" id="usernameInput" placeholder="Username" name="username")
         div(class="form-group")
-            label(for="exampleInputPassword1") Password
-            input(type="password" class="form-control" id="passwordInput1" placeholder="Password" name="passwordInput1")
+            label(for="email") Email
+            input(type="email" class="form-control" id="emailInput" placeholder="Email" name="email")
         div(class="form-group")
-            label(for="exampleInputPassword2") Konfirmasi Password
-            input(type="password" class="form-control" id="passwordInput2" placeholder="Konfirmasi Password" name="passwordInput2")
+            label(for="password") Password
+            input(type="password" class="form-control" id="passwordInput" placeholder="Password" name="password")
         div(class="form-group")
-            label(for="exampleInputEmail1") Nama Lengkap
-            input(type="text" class="form-control" id="namaInput" placeholder="Nama Lengkap" name="namaInput")
+            label(for="passwordConfirm") Konfirmasi Password
+            input(type="password" class="form-control" id="passwordConfirmInput2" placeholder="Konfirmasi Password" name="passwordConfirm")
         div(class="form-group")
-            label(for="exampleInputEmail1") NIK
-            input(type="number" min="0" max="9999999999999999" class="form-control" id="nikInput" placeholder="Nomor Induk Kependudukan" name="nikInput")
+            label(for="nik") NIK
+            input(type="number" min="0" max="9999999999999999" class="form-control" id="nikInput" placeholder="Nomor Induk Kependudukan" name="nik")
         button(type="submit" class="btn btn-primary") Register
 
 block cover-footer

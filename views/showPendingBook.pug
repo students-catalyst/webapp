@@ -1,0 +1,48 @@
+extends layout
+
+append head
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.0.0/css/tableexport.min.css')
+
+block cover-header  
+  h3(class="masthead-brand")
+    a(class="nav-link" href="javascript:history.back()") 
+      span(class="fas fa-arrow-left")
+      |  Back
+  if (!user)
+    nav(class="nav nav-masthead justify-content-center")
+      a(class="nav-link" href="/login") Login
+      a(class="nav-link" href="/register") Register
+  else
+    nav(class="nav nav-masthead justify-content-center")
+      a(class="nav-link" href="#") Halo #{user.username} !
+      a(class="nav-link" href="/logout") Logout
+
+block cover-main  
+  h3 Pending book lists
+  if ((user)&&(user.role === "admin")&&(collections.length > 0))
+    h5 #{collections[0].bk.nama}
+    table(class="table" id="dvData")
+      tr
+        th(scope="col") #
+        th(scope="col") Nama
+        th(scope="col") Kursi
+        th(scope="col") 
+      each item,idx in collections
+        tr
+          th(scope="row") #{idx+1}
+          td #{item.nama}
+          td #{item.kursi.label}
+          td 
+            button(class="btn btn-success" id=item._id) Konfirmasi Peminjaman
+
+block cover-footer
+  p Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.
+
+append content
+  each item in collections
+    script.
+      $(() => {
+          $('##{item._id}').click(() =>{
+            window.location.href = '/confirmBook/#{item._id}';
+          });
+      });

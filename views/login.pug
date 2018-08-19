@@ -2,19 +2,21 @@ extends layout
 
 block cover-header  
   h3(class="masthead-brand")
-    a(class="nav-link" href="./") #{title}
+    a(class="nav-link" href="/")
+      span(class="fas fa-arrow-left")
+      |  Back
   nav(class="nav nav-masthead justify-content-center")
-    a(class="nav-link" href="./login") Login
-    a(class="nav-link" href="./register") Register
+    a(class="nav-link" href="/login") Login
+    a(class="nav-link" href="/register") Register
 
 block cover-main
-    form(action="./login")
+    form(action="/login" method="post")
         div(class="form-group")
-            label(for="exampleInputEmail1") Email
-            input(type="email" class="form-control" id="exampleInputEmail1" placeholder="Email")
+            label(for="username") Username
+            input(type="text" class="form-control" id="username" placeholder="Username" name="username")
         div(class="form-group")
-            label(for="exampleInputPassword1") Password
-            input(type="password" class="form-control" id="exampleInputPassword1" placeholder="Password")
+            label(for="password") Password
+            input(type="password" class="form-control" id="password" placeholder="Password" name="password")
         button(type="submit" class="btn btn-primary") Login
 
 block cover-footer
