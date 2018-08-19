@@ -141,7 +141,7 @@ router.get('/populate', function(req, res){
   let row = ["Q","P","O","N","M","L","K","J","I","H","G","F","E","D","C","B","A"];
   let col = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
   row.forEach((i) => {
-    row.forEach((j) => {
+    col.forEach((j) => {
       Kursi.create( {label : i+j}, (err,small) => {
         if (err) return console.error(err);
         res.redirect('/');
