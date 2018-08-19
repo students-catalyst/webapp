@@ -144,10 +144,10 @@ router.get('/populate', function(req, res){
     col.forEach((j) => {
       Kursi.create( {label : i+j}, (err,small) => {
         if (err) return console.error(err);
-        res.redirect('/');
       });
     });
   });
+  res.redirect('/');
   
 });
 
