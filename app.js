@@ -48,7 +48,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-let mongoDbUri = (process.MONGODB_URI);
+let mongoDbUri = (process.env.MONGODB_URI || "mongodb://localhost:27017/bk");
 mongoose.connect(mongoDbUri,{ useNewUrlParser: true });
 
 
