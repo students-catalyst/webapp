@@ -48,7 +48,8 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true });
+let mongoDbUri = (process.MONGODB_URI || "mongodb://localhost:27017/bk");
+mongoose.connect(mongoDbUri,{ useNewUrlParser: true });
 
 
 // catch 404 and forward to error handler
