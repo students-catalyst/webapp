@@ -19,7 +19,7 @@ block cover-header
 
 block cover-main  
   h3 Pending book lists
-  if ((user)&&(user.role === "admin")&&(collections.length > 0))
+  if ((user)&&((user.role === "admin") || (user.role === "registrar"))&&(collections.length > 0))
     h5 #{collections[0].bk.nama}
     table(class="table" id="dvData")
       tr

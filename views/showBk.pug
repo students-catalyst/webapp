@@ -19,12 +19,12 @@ block cover-main
     h3 #{collections.nama}
     p Tanggal : #{collections.tanggal}
     p Waktu : #{collections.mulai} - #{collections.berakhir}
-    if (user.role === "admin")
+    if ((user.role === "admin") || (user.role === "registrar"))
       p Fungs : #{collections.fungs.username}    
     a(href="/book/" + collections._id class="btn btn-primary") Book
     br
     br
-    if (user.role === "admin")
+    if ((user.role === "admin") || (user.role === "registrar"))
       a(href="/visitors/" + collections._id class="btn btn-info") Lihat Pengunjung
       br
       br
