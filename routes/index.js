@@ -22,21 +22,29 @@ router.get('/', function (req, res) {
 });
 
 router.get('/addBk', function (req, res) {
-  if ((!req.user) || (req.user.role !== "admin")) {
+  if (!req.user) {
     res.redirect('/login'); 
   } else {
-    res.render('addBk', { title: "Bioskop Kampus", user : req.user });
+    if (req.user.role === "admin") {
+      res.render('addBk', { title: "Bioskop Kampus", user : req.user });
+    } else {
+      res.redirect('/');
+    }
   }
 });
 
 router.post('/addBk', function (req,res) {
-  if ((!req.user) || (req.user.role !== "admin")) {
+  if (!req.user) {
     res.redirect('/login'); 
   } else {
-    BK.create({ nama: req.body.nama, tanggal: req.body.tanggal, mulai: req.body.waktuAwal, berakhir: req.body.waktuAkhir, fungs : req.user }, (err,small) => {
-      if (err) return console.error(err);   
-      res.redirect('/'); 
-    });
+    if (req.user.role === "admin") {
+      BK.create({ nama: req.body.nama, tanggal: req.body.tanggal, mulai: req.body.waktuAwal, berakhir: req.body.waktuAkhir, fungs : req.user }, (err,small) => {
+        if (err) return console.error(err);   
+        res.redirect('/'); 
+      });
+    } else {
+      res.redirect('/');
+    }
   }
 })
 
@@ -63,22 +71,30 @@ router.get('/book/:id', (req,res) => {
 });
 
 router.get('/showPendingBook/:id', function (req, res) {
-  if ((!req.user) || (req.user.role !== "admin") || (req.user.role !== "registrar")) {
+  if (!req.user) {
     res.redirect('/login'); 
   } else {
-    BK.findOne({ _id : req.params.id }, function(err, bk) {
-      Pengunjung.find({ bk : bk, status:"pending" }, function(err, pengunjung) {
-        res.render('showPendingBook', { title: "Bioskop Kampus", collections : pengunjung , user : req.user });
+    if (req.user.role === "user") {
+      res.redirect('/');
+    } else {
+      BK.findOne({ _id : req.params.id }, function(err, bk) {
+        Pengunjung.find({ bk : bk, status:"pending" }, function(err, pengunjung) {
+          res.render('showPendingBook', { title: "Bioskop Kampus", collections : pengunjung , user : req.user });
+        });
       });
-    });
+    }
   }
 });
 
 router.get('/confirmBook/:id', (req,res) => {
-  if ((!req.user) || (req.user.role !== "admin")|| (req.user.role !== "registrar")) {
+  if (!req.user) {
     res.redirect('/login'); 
   } else {
-    Pengunjung.update({ _id : req.params.id },{$set : { status : "accepted" }},(err,e) => {});
+    if (req.user.role === "user") {
+      res.redirect('/');
+    } else {
+      Pengunjung.update({ _id : req.params.id },{$set : { status : "accepted" }},(err,e) => {});
+    }
   }
 });
 
@@ -93,44 +109,56 @@ router.get('/cancelBook/:id', (req,res) => {
 });
 
 router.get('/visitors/:id', (req, res) => {
-  if ((!req.user) || (req.user.role !== "admin") || (req.user.role !== "registrar")) {
+  if (!(req.user)) {
     res.redirect('/login'); 
   } else {
-    BK.findOne({ _id : req.params.id },(err, bk) => {
-      Pengunjung.find({bk : bk }, (err,pengunjung) => {
-        res.render('visitors', { title: "Bioskop Kampus", collections : pengunjung , user : req.user });
-      })
-    });
+    if (req.user === "user") {
+      res.redirect('/'); 
+    } else {
+      BK.findOne({ _id : req.params.id },(err, bk) => {
+        Pengunjung.find({bk : bk }, (err,pengunjung) => {
+          res.render('visitors', { title: "Bioskop Kampus", collections : pengunjung , user : req.user });
+        })
+      });
+    }
   }
 });
 
 router.get('/kursiRusak/', (req,res) => {  
-  if ((!req.user) || (req.user.role !== "admin")) {
+  if (!req.user) {
     res.redirect('/login'); 
   } else {
-    KursiRusak.find({}, (err,kursiRusak) => {
-      res.render('kursiRusak', { title: "Bioskop Kampus", user : req.user, dataKursiRusak : kursiRusak });
-    });
+    if (req.user.role === "admin") {
+      KursiRusak.find({}, (err,kursiRusak) => {
+        res.render('kursiRusak', { title: "Bioskop Kampus", user : req.user, dataKursiRusak : kursiRusak });
+      });
+    } else {
+      res.redirect('/');
+    }
   }
 });
 
 router.get('/kursiRusak/:id', (req,res) => {  
-  if ((!req.user) || (req.user.role !== "admin")) {
+  if (!req.user) {
     res.redirect('/login'); 
   } else {
-    KursiRusak.findOne({ label : req.params.id }, (err,kursiRusak) => {
-      if (kursiRusak) {
-        KursiRusak.remove({ label: req.params.id }, (err,small) => {
-          if (err) return console.error(err);   
-          res.redirect('/kursiRusak/'); 
-        });
-      } else {
-        KursiRusak.create({ label: req.params.id }, (err,small) => {
-          if (err) return console.error(err);   
-          res.redirect('/kursiRusak/'); 
-        });
-      }
-    })
+    if (req.user.role === "admin") {
+      KursiRusak.findOne({ label : req.params.id }, (err,kursiRusak) => {
+        if (kursiRusak) {
+          KursiRusak.remove({ label: req.params.id }, (err,small) => {
+            if (err) return console.error(err);   
+            res.redirect('/kursiRusak/'); 
+          });
+        } else {
+          KursiRusak.create({ label: req.params.id }, (err,small) => {
+            if (err) return console.error(err);   
+            res.redirect('/kursiRusak/'); 
+          });
+        }
+      })
+    } else {
+      res.redirect('/');
+    }
   }
 });
 
