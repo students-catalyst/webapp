@@ -168,7 +168,7 @@ router.get('/register', function(req, res) {
 
 router.post('/register', function(req, res) {
     Account.register(new Account({ username : req.body.username, email: req.body.email, nik: req.body.nik, role : "user" }), req.body.password, function(err, account) {
-        if (err || (req.body.password !== req.body.passwordConfirm) || (req.body.nik.length !== 16)|| (req.body.nik.search(/[^a-zA-Z]+/) !== -1)) {
+        if (err || (req.body.password !== req.body.passwordConfirm) || (req.body.nik.length !== 16)|| (req.body.nik.search(/[a-zA-Z]+/) !== -1)) {
           let message = "";
           if (req.body.nik.length !== 16) {
             message = message.concat("Panjang NIK harus 16 digit!\n");
@@ -176,12 +176,10 @@ router.post('/register', function(req, res) {
           if (req.body.password !== req.body.passwordConfirm) {
             message = message.concat("Password dan konfirmasinya harus sesuai\n");
           }
-          if (req.body.nik.search(/[^a-zA-Z]+/) !== -1) {
+          if (req.body.nik.search(/[a-zA-Z]+/) !== -1) {
             message = message.concat("NIK hanya diisi angka!\n");
           }
           message = message.concat(err + "\n");        
-          
-
 
           return res.render('register', { title: "Bioskop Kampus", message : message, account : account });
         }
