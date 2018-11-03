@@ -28,6 +28,16 @@ block cover-main
         div(class="form-group")
             label(for="waktuAkhir") Jam selesai
             input(type="time" class="form-control" id="waktuAkhir" name="waktuAkhir")
+        div(class="form-group")
+            div(class="row")
+                div(class="col-sm-3")
+                div(class="col-sm-3")
+                    input(type="radio" id="radio1" name="lokasi" value="9009" autocomplete="off")
+                    span(class="radioLabel")  Di 9009
+                div(class="col-sm-3")
+                    input(type="radio" id="radio1" name="lokasi" value="not9009" autocomplete="off")
+                    span(class="radioLabel")  Non 9009
+                div(class="col-sm-3")
         button(type="submit" class="btn btn-primary") Tambah BK
 
   

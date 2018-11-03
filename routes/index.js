@@ -38,7 +38,11 @@ router.post('/addBk', function (req,res) {
     res.redirect('/login'); 
   } else {
     if (req.user.role === "admin") {
-      BK.create({ nama: req.body.nama, tanggal: req.body.tanggal, mulai: req.body.waktuAwal, berakhir: req.body.waktuAkhir, fungs : req.user }, (err,small) => {
+      let isInLfm = false;
+      if (req.body.lokasi === "9009") {
+        isInLfm = true;
+      }
+      BK.create({ nama: req.body.nama, tanggal: req.body.tanggal, mulai: req.body.waktuAwal, berakhir: req.body.waktuAkhir, fungs : req.user,  isInLFM : isInLfm}, (err,small) => {
         if (err) return console.error(err);   
         res.redirect('/'); 
       });
@@ -47,6 +51,37 @@ router.post('/addBk', function (req,res) {
     }
   }
 })
+
+router.post('/bookNoLFM', function (req,res) {
+  if (!req.user) {
+    res.redirect('/login'); 
+  } else {
+    let status;
+    if (req.user.role === "user") {
+      status = "pending";
+    } else {
+      status = "accepted";
+    }
+    Account.findOne({ _id : req.user._id }, (err, pendaftar) => {
+      if (err) return console.error(err);   
+      BK.findOne({ _id : req.body.bk }, (err, bk) => {
+        if (err) return console.error(err);   
+        let pengunjungPayload = {
+          pendaftar: pendaftar,
+          bk : bk,
+          nama : req.body.nama,
+          lembaga : req.body.lembaga,
+          email : req.body.email,
+          status : status
+        }
+        Pengunjung.create(pengunjungPayload, (err,cb) => {
+          if (err) return console.error(err);
+          res.redirect('/');                               
+        });
+      });
+    });
+  }
+});
 
 router.get('/showBk/:id', function (req, res) {
   if (!req.user) {
@@ -65,7 +100,11 @@ router.get('/book/:id', (req,res) => {
     res.redirect('/login'); 
   } else {
     BK.findOne({ _id:req.params.id},(err,bk) => {
-      res.render('bookBk', { title: "Bioskop Kampus", collections : bk, user : req.user });
+      if(bk.isInLFM) {
+        res.render('bookBk', { title: "Bioskop Kampus", collections : bk, user : req.user });
+      } else {
+        res.render('bookBkNoLFM', { title: "Bioskop Kampus", collections : bk, user : req.user });
+      }
     });
   }
 });

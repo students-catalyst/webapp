@@ -7,6 +7,7 @@ var BK = new Schema({
     tanggal: String,
     mulai: String,
     berakhir : String,
+    isInLFM : Boolean,
     fungs: Account
 });
 
