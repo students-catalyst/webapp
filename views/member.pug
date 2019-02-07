@@ -1,0 +1,14 @@
+extends layout
+
+block cover-main  
+  if (message)
+    div(class="alert alert-warning alert-dismissible fade show" role="alert")
+      span #{message}
+      button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+        span(aria-hidden="true") &times;
+  if (user)
+    h1 Selamat datang #{user.username}!
+    a(href="/requests")
+      h2 Daftar history request mentoring
+    a(href="/mentorship")
+      h2 List mentor

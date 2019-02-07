@@ -1,0 +1,23 @@
+extends layout
+
+block cover-main  
+  if (message)
+    div(class="alert alert-warning alert-dismissible fade show" role="alert")
+      span #{message}
+      button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+        span(aria-hidden="true") &times;
+  if (user)
+    div(class="row")
+      div(class="col-md-1")
+      div(class="col-md-3")
+        img(src="https://res.cloudinary.com/djpvro5sh/image/upload/v1545989513/profpic/"+user._id+".png" alt="profile image")
+      div(class="col-md-7 text-left")
+        h3 Nama : #{user.fullname}
+        h3 #{user.role}
+        h3 Email : #{user.email}        
+      div(class="col-md-1")
+    br
+    a(class="btn btn-primary" href="/profile/edit") Edit Profile
+      
+
+          

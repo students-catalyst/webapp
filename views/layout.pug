@@ -7,12 +7,22 @@ html
       link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css')
       link(rel='stylesheet', href='/stylesheets/bk.css')
       link(rel='stylesheet', href='/stylesheets/cover.css')
+      link(rel='stylesheet', href='/stylesheets/tooltip.css')
+
   body(class="text-center")
     block content
       div(class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column")
         header(class="masthead mb-auto")
           div(class="inner")
-            block cover-header
+            block cover-header  
+              h3(class="masthead-brand")
+                a(class="nav-link" href="/member") #{title}
+              nav(class="nav nav-masthead justify-content-center")
+                if (user) 
+                  a(class="nav-link" href="/profile/") Profile     
+                  a(class="nav-link" href="/logout") Logout
+                else
+                  a(class="nav-link" href="/login") Login
 
         main(role="main" class="inner cover bks")
           block cover-main
@@ -20,6 +30,11 @@ html
         footer(class="mastfoot mt-auto")
           div(class="inner")
             block cover-footer
+              p Mahdiar Naufal - 2018
       script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js',integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo',crossorigin='anonymous')
       script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js',integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49',crossorigin='anonymous')
       script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js',integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy',crossorigin='anonymous')
+      script.
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        });

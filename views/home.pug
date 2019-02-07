@@ -1,0 +1,770 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title StudentsCatalyst
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat')
+  link(rel='stylesheet' href='/stylesheets/home.css')
+nav.navbar.navbar-expand-lg.navbar-dark.bg-black
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto.mx-auto
+      li.nav-item.active
+        a.nav-link(href='#home')
+          | Home 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='#about') About Us
+      li.nav-item
+        a.nav-link(href='#team') Our Team
+      li.nav-item
+        a.nav-link(href='#mentorship') Mentorship
+      li.nav-item
+        a.nav-link(href='#gallery') Gallery
+      li.nav-item
+        a.nav-link(href='#partnernsponsor') Partnership and Sponsorship
+      li.nav-item
+        a.nav-link(href='./member') Community Members
+#carousel.carousel.slide(data-ride='carousel')
+  ol.carousel-indicators
+    li.active(data-target='#carousel' data-slide-to='0')
+    li(data-target='#carousel' data-slide-to='1')
+  .carousel-inner
+    .carousel-item.active
+      .image-overlay
+        img.d-block.w-100(src='https://lh3.googleusercontent.com/8b1N_XJr7Jx7783R9JZhvh_haO1LFe1c53BghP7fwsjqRAJK3h3ISMFLfrPqIKosIG7JcfY_5JvOoPEQdms=s1600' alt='First slide')
+      .carousel-caption.d-none.d-md-block
+        img(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1549559180/logo.png')
+        br
+        br
+        h1
+          | A student-network of highly motivated, entrepreneurs, and initiators.
+        a#jumbotron-more.btn.btn-outline-light.btn-round(href='#about') More
+    .carousel-item
+      img.d-block.w-100(src='https://lh3.googleusercontent.com/8b1N_XJr7Jx7783R9JZhvh_haO1LFe1c53BghP7fwsjqRAJK3h3ISMFLfrPqIKosIG7JcfY_5JvOoPEQdms=s1600' alt='Second slide')
+      .carousel-caption.d-none.d-md-block
+        h1 Network.
+        h1 Inspire.
+        h1 Beyond.
+  a.carousel-control-prev(href='#carousel' role='button' data-slide='prev')
+    span.carousel-control-prev-icon(aria-hidden='true')
+    span.sr-only Previous
+  a.carousel-control-next(href='#carousel' role='button' data-slide='next')
+    span.carousel-control-next-icon(aria-hidden='true')
+    span.sr-only Next
+#about.container-fluid.text-center.pt-5.px-0
+  h2#about-headline ABOUT US
+  br
+  .btn-group.btn-group-toggle(data-toggle='buttons')
+    label.btn.btn-secondary.active
+      input#option1(type='radio' name='options' onchange='showAboutUs();' autocomplete='off' checked='')
+      |  About Us
+    label.btn.btn-secondary
+      input#option2(type='radio' name='options' onchange='showWhatWeDo();' autocomplete='off')
+      |  What We Do
+    label.btn.btn-secondary
+      input#option3(type='radio' name='options' onchange='showTestimony();' autocomplete='off')
+      |  Testimony
+  br
+  br
+  #about-content
+    .about-quotes.mx-auto
+      h3.font-italic
+        | &quot;We Believe that There is No Such Thing as Limit for College Students to Do More, Achieve More, and Contribute More&quot;
+    br
+    .about-paragraph.mx-auto
+      p
+        | StudentsCatalyst is a student-led initiative that provide incubator for top performer individual to gather, share, and inspire each other.
+      br
+      p
+        | StudentsCatalyst will be the platform for all highly-motivated college students to connect and share their break-the-limit experience with others. Our main goal is to help college students - especially first to third year, to shape their path and plan throughout college years as well as encourage them to achieve more. This is really important because we as students need to be prepared before we are going to compete in the competitive labour market.
+  #whatwedo-content.mx-auto
+    .what-we-do-texts.mx-auto
+      h3
+        | We have designed programs and activities packed to answer our needs to achieve more tailored to your goal and interests - enthusiast-highly motivated students, entrepreneurs, or initiators.
+      br
+      p
+        | It&apos;s a 6-month program for each batch, paralleled with your academic activities, consists of mandatory internal monthly forum &amp; peers-coaching and optional internal sharing session &ZeroWidthSpace;. We also hold external sharing session and forum called StudentsCatalyst AfternoonTalk for non members-everyone can join.
+      p There are 3 kind of memberships :
+      b 1. Member
+      p
+        | Members will be recruited every 6 months. Our target is 1st to 3rd year students, considering their passion, motivation, and experiences.
+      b 2. Peers
+      p
+        | To support one of our program &ndash; Peers coaching, we need more students to join us as peers. We expect that our peers are students who have proven achievements on competitions, businesses, or NGOs, so they have stories to be share. It&rsquo;s a two-way peers, so they can learn from each other. This is recommended for final year students.
+      b 3. Core Team
+      p
+        | As our team, we need you to help this organization keeps growing, expanding, and bringing innovation to make this organization more impactful. As the team, you will gain the benefits like our member while gaining more experience developing this organization.
+    .row.card-what-we-do-container
+      .card.card-whatwedo.mx-auto
+        .card-whatwedo-img-container
+          img.card-whatwedo-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1549553649/Icons/icon-project.png' width='40%' alt='Card image cap')
+        .card-body
+          h5.card-title.text-center PROJECT
+          p.card-text.text-center Postworks.
+          br
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#modalWhatWeDo1')
+            | More
+      .card.card-whatwedo.mx-auto
+        .card-whatwedo-img-container
+          img.card-whatwedo-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1549553649/Icons/icon-coaching.png' width='45%' alt='Card image cap')
+        .card-body
+          h5.card-title.text-center PEER-BASED COACHING
+          p.card-text.text-center Two-way peers.
+          br
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#modalWhatWeDo2')
+            | More
+      .card.card-whatwedo.mx-auto
+        .card-whatwedo-img-container
+          img.card-whatwedo-img-top(src='https://lh3.googleusercontent.com/LJXKfzv-HrMPfVMx1FFVfoH50scXFBLrnT2PiVtD8coehRtxI8qO6ak5pqBJbsLrjBt_Xq-htGONF8C_' alt='Card image cap')
+        .card-body
+          h5.card-title.text-center INTERNAL FORUM
+          p.card-text.text-center Monthly.
+          br
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#modalWhatWeDo3')
+            | More
+      .card.card-whatwedo.mx-auto
+        .card-whatwedo-img-container
+          img.card-whatwedo-img-top(src='https://lh3.googleusercontent.com/JhRKA_8_nM-zYpejxXdAA4lE0S6T7ISoa3wERiI_WZBt4foZUJCjMP3Pryhce79wnDC43eXRaLJnb2nT' alt='Card image cap')
+        .card-body
+          h5.card-title.text-center SHARING SESSION
+          p.card-text.text-center On-demand sharing session &amp; networking.
+          br
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#modalWhatWeDo4')
+            | More
+      .card.card-whatwedo.mx-auto
+        .card-whatwedo-img-container
+          img.card-whatwedo-img-top(src='https://lh3.googleusercontent.com/C0WeCDPD7Krzz4FHNM9CXhH_LnPF7u8KO3Y6QV-k_CWLsHW-3ChyO50bdrZ6qy3NDe6tFNMrH1NEdWvTT7g' alt='Card image cap')
+        .card-body
+          h5.card-title.text-center EXTERNAL FORUM
+          p.card-text.text-center External sharing session/forum and workshop.
+          br
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#modalWhatWeDo5')
+            | More
+      .card.card-whatwedo.mx-auto
+        .card-whatwedo-img-container
+          img.card-whatwedo-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1549554005/Icons/icon-mentorship.png' width='40%' alt='Card image cap')
+        .card-body
+          h5.card-title.text-center MENTORSHIP
+          p.card-text.text-center Connect all members and alumni to other members who are eager to do mentoring.
+          br
+          button.btn.btn-dark(type='button' data-toggle='modal' data-target='#modalWhatWeDo6')
+            | More
+  #testimony-content.px-0.container-fluid.mx-auto
+    #carouselRecommendation.carousel.slide(data-ride='carousel')
+      ol.carousel-indicators
+        li.active(data-target='#carouselRecommendation' data-slide-to='0')
+        li(data-target='#carouselRecommendation' data-slide-to='1')
+        li(data-target='#carouselRecommendation' data-slide-to='2')
+        li(data-target='#carouselRecommendation' data-slide-to='3')
+        li(data-target='#carouselRecommendation' data-slide-to='4')
+        li(data-target='#carouselRecommendation' data-slide-to='5')
+      .carousel-inner
+        .carousel-item.active
+          img.d-block.w-100.carouselRecommendation-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselRecommendation-caption.d-none.d-md-block
+            .row
+              .col-md-1
+              .col-md-4
+                img(src='https://lh3.googleusercontent.com/mxGE4A82ETiKx1iU9jyLLlXM1gsUZqMFNow5eZlSXuDzmXr3W6FMb0LVimLuNvv_FdrIHNUiWSkBcl71=s1000')
+              .col-md-6.text-left
+                h3
+                  | StudentCatalyst facilitates a constructive and supportive environment, which is essential to reach one&rsquo;s full potential. This is an opportunity thus far not this accessible to many students in ITB
+                br
+                h4 Immanuel Robinson
+                h4 Alumni, currently working in British Petroleum Indonesia
+              .col-md-1
+        .carousel-item
+          img.d-block.w-100.carouselRecommendation-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselRecommendation-caption.d-none.d-md-block
+            .row
+              .col-md-1
+              .col-md-4
+                img(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546772773/Carousel%20Recommendations/carousel-image-2.jpg')
+              .col-md-6.text-left
+                h3
+                  | StudentsCatalyst is expected to give inclusive impact because in chemistry, catalyst can react with anything
+                br
+                h4 Prof. Akhmaloka, Dipl. Biotech., Ph.D
+                h4 Rector of ITB 2010-2015
+              .col-md-1
+        .carousel-item
+          img.d-block.w-100.carouselRecommendation-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselRecommendation-caption.d-none.d-md-block
+            .row
+              .col-md-1
+              .col-md-4
+                img(src='https://lh3.googleusercontent.com/bsAlmLfgNZ_8hEnzUQF_3Ew7pYtW78MifbhBHexBSmgWey1NLnuyu2fEAp_erjXpu6F-H6mrAobOOU1-lw=s1000')
+              .col-md-6.text-left
+                h3
+                  | In StudentsCatalyst, I learned about the mission in life is not merely to survive, but to thrive. And to do so we are coming together for the beginning; keeping together for progressing; working together for success
+                br
+                h4 Putranegara Riauwindu
+                h4
+                  | Alumni, Well Site Manager at Chevron Pacific Indonesia, former President of ASHRAE ITB SB
+              .col-md-1
+        .carousel-item
+          img.d-block.w-100.carouselRecommendation-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselRecommendation-caption.d-none.d-md-block
+            .row
+              .col-md-1
+              .col-md-4
+                img(src='https://lh3.googleusercontent.com/f0KdFO-dpVBybxV63P75ZTkRpb-NPxX8sorI2dYwyJIDtrPMvfmvbXu74hELu2WpGE0BrKruTLexUjpOaQ=s1000')
+              .col-md-6.text-left
+                h3
+                  | This is a good community that is made by youth to inspire others to achieve more and create initiatives to bring impacts to others
+                br
+                h4 I Gede Ngurah Swajaya
+                h4 Indonesian Ambassador to Singapore
+              .col-md-1
+        .carousel-item
+          img.d-block.w-100.carouselRecommendation-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselRecommendation-caption.d-none.d-md-block
+            .row
+              .col-md-1
+              .col-md-4
+                img(src='https://lh3.googleusercontent.com/5VIyczK1_bdsVkMxRFN1-hJ_MXJk5RdBdhG5Xu1B9h1Rn8L1ke00wHtMwPNSfxp-Z3Xrb3u-XOryxnOSlw=s1000')
+              .col-md-6.text-left
+                h3
+                  | &quot;If there used to be StudentsCatalyst, I would&apos;ve joined it longe time ago. StudentsCatalyst is a place where we can create big change which usually comes from inspiration&quot;
+                br
+                h4 Ujang Purnama
+                h4 1st Wommer &quot;Ganesha Prize&quot; - Most Outstanding Student (MAWAPRES) ITB 2015
+              .col-md-1
+        .carousel-item
+          img.d-block.w-100.carouselRecommendation-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselRecommendation-caption.d-none.d-md-block
+            .row
+              .col-md-1
+              .col-md-4
+                img(src='https://lh3.googleusercontent.com/dsMMbMqENLNLSmKCpy6rW-IikGa3syn0YrBJ_5AVosyfVCx9ZgMV3-EkS8yY27mOLu1deXsVDlW4huC5ow=s1000')
+              .col-md-6.text-left
+                h3
+                  | The opportunities are clear. Only those who can nurture themself that can grab those opportunities
+                br
+                h4 Ricky Elson
+                h4 Indonesian Technocrat, Founder of Tucuxi Electric Car
+              .col-md-1
+      a.carousel-control-prev(href='#carouselRecommendation' role='button' data-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.sr-only Previous
+      a.carousel-control-next(href='#carouselRecommendation' role='button' data-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.sr-only Next
+    #carouselTestimony.carousel.slide(data-ride='carousel')
+      ol.carousel-indicators.indicators-black
+        li.active(data-target='#carouselTestimony' data-slide-to='0')
+        li(data-target='#carouselTestimony' data-slide-to='1')
+        li(data-target='#carouselTestimony' data-slide-to='2')
+        li(data-target='#carouselTestimony' data-slide-to='3')
+      .carousel-inner
+        .carousel-item.active
+          img.d-block.w-100.carouselTestimony-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselTestimony-caption.d-none.d-md-block
+            .row
+              .col-md-2
+              .col-md-8.text-center
+                img(src='https://lh3.googleusercontent.com/7-_b33GSNuoNRu0Ea7glZm6pFqLrwbrTfwb8mt8Z737F9CjPUXzCu0AeruWb9tjUNaQv_t5uGNiHc0uu')
+                br
+                br
+                h3
+                  | In StudentsCatalyst, I&rsquo;ve learned about how to achieve higher as students in academics and non-academics. The environment encourages me to push myself harder towards my goal.The people in the community are warm and willing to share their own experience. I really glad to find other people in campus that want are self-driven, want to achieve more together, not only for themselves
+                br
+                h4 Gilang Agustiar
+                h4 Co-Founder and CEO of Arete Inc.
+              .col-md-2
+        .carousel-item
+          img.d-block.w-100.carouselTestimony-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselTestimony-caption.d-none.d-md-block
+            .row
+              .col-md-2
+              .col-md-8.text-center
+                img(src='https://lh3.googleusercontent.com/V9XyusAhvqDYtPl9siOjahIl_VPAj4F506-FF3B2M_PYPz0aSnIaimm3PETW8VG1wD6U1NUIuDnCk79J')
+                br
+                br
+                h3
+                  | I think being part of StudentsCatalyst is the best decision for student organization I ever made. The member are really supportive and inspiring! SC makes me break my limit and be able to realize it! Thank you so much SC!
+                br
+                h4 Erdiani M. Erwandi
+                h4
+                  | Marketing Research Intern at PT Intiland Development Tbk, Indonesian Delegates to YOUTEX Malaysia 2016
+              .col-md-2
+        .carousel-item
+          img.d-block.w-100.carouselTestimony-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselTestimony-caption.d-none.d-md-block
+            .row
+              .col-md-2
+              .col-md-8.text-center
+                img(src='https://lh3.googleusercontent.com/n4GIoBaXEVzc5Sad43YHabLFRVbkgkyIPnJ7rM7DVJgKvZSmBJARtwdB4IZVG6YxzEjKoJZEAFmno4zS')
+                br
+                br
+                h3
+                  | I am so grateful being part of StudentsCatalyst. It helps me to be a better version of myself. It has supportive environment in which it is okay to be ambitios cause what matters is that we achieved something valuable in life. I learnt a lot in StudentsCatalyst so that I was selected as an intern in a social entreprise- Ruangguru.com out of 672 applicants. Thanks StudentsCatalyst and all folks in there!
+                br
+                h4 Febriani Fitria
+                h4
+                  | Vacation Trainee at Schlumberger, Business Development Associate Intern at Ruangguru.com
+              .col-md-2
+        .carousel-item
+          img.d-block.w-100.carouselTestimony-img(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='First slide')
+          .carouselTestimony-caption.d-none.d-md-block
+            .row
+              .col-md-2
+              .col-md-8.text-center
+                img(src='https://lh3.googleusercontent.com/DdnGmrWc8y5VWPwu2IK2kfDx6OaSvhL5cG3b54hOQE8I0PBjg5lmhmeClgWY8blw3cTu47OESgVqyleR')
+                br
+                br
+                h3
+                  | StudentsCatalyst is a supportive community for students who want to achieve more and grow. It helps you to broaden your network as well as your comfort zone, triggers you to become more productive
+                br
+                h4 Dilla Anindita
+                h4
+                  | Product Manager at Grab Indonesia, Co-Founder of Akrab, Head of Alumni Affairs at YLI Indonesia
+              .col-md-2
+      a.carousel-control-prev(href='#carouselTestimony' role='button' data-slide='prev')
+        span.carousel-control-prev-icon-black(aria-hidden='true')
+        span.sr-only Previous
+      a.carousel-control-next(href='#carouselTestimony' role='button' data-slide='next')
+        span.carousel-control-next-icon-black(aria-hidden='true')
+        span.sr-only Next
+#team.container-fluid.text-center.pt-5.py-5
+  h2 OUR TEAM
+  br
+  .btn-group.btn-group-toggle(data-toggle='buttons')
+    label.btn.btn-secondary.active
+      input#team1(type='radio' name='team' onchange='showBod();' autocomplete='off' checked='')
+      |  Board of Directors
+    label.btn.btn-secondary
+      input#team2(type='radio' name='team' onchange='showPeers();' autocomplete='off')
+      |  Peers
+    label.btn.btn-secondary
+      input#team3(type='radio' name='team' onchange='showFounders();' autocomplete='off')
+      |  Cofounders
+  br
+  br
+  #bod.containter-fluid
+    #btn-chapters.row
+      .col.col-md-1
+      .col.col-md-10
+        .row.mx-auto.row-chapters
+          button#btn-chapter-bandung.btn.btn-chapter.btn-chapter-bandung(onclick='bandungChapterTeamShow()')
+            h2 Bandung Chapter
+            label click to see more
+          button#btn-chapter-jakarta.btn.btn-chapter.btn-chapter-jakarta(onclick='jakartaChapterTeamShow()')
+            h2 Jakarta Chapter
+            label click to see more
+      .col.col-md-1
+    br
+    #bandungTeam.row
+      .col.col-md-1
+      .col.col-md-10
+        h2 Bandung Chapter
+        .row
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546374188/BoD%20Bandung/Finance___Partnership.jpg' alt='Card image cap')
+            .card-body
+              h5.card-title Finance
+              p.card-text
+                | They manage StudentsCatalyst financial allocation. They monitor the financial situation and make annual financial report. They create and plan financial strategy to raise StudentsCatalyst funding. They increase funds by researching and targeting trustable partner whose criteria match the StudentsCatalyst aims and activities. They maintain and develop StudentsCatalyst external partnership.
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546374188/BoD%20Bandung/Human_Resource___Talent_Development.jpg' alt='Card image cap')
+            .card-body
+              h5.card-title Human Resource
+              p.card-text
+                | They schedule the operational stuff for BoD, students, and peers. They approach potential talents and monitor development of each students and peers. They develop the content of program with Operation.
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546374188/BoD%20Bandung/President.jpg' alt='Card image cap')
+            .card-body
+              h5.card-title President
+              p.card-text
+                | She creates innovation and strategic planning for organization and improves the organization based on strategic plan, review, and iterate. She also manages and monitors the BoD and whole team to work based on StudentsCatalist value and strategy. She leads the team to make and deliver organization monthly report and review to the Board of Commisioner.
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546374188/BoD%20Bandung/Marketing.jpg' alt='Card image cap')
+            .card-body
+              h5.card-title Marketing
+              p.card-text
+                | They compose, create, and develop marketing content. They also develop new ideas and concept on advertisement and manage the StudentsCatalyst website. They make strategy to enlarge StudentsCatalyst market.
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546374188/BoD%20Bandung/Operation.jpg' alt='Card image cap')
+            .card-body
+              h5.card-title Operation
+              p.card-text
+                | They create comprehensive learning modules and strategies for StudentsCatalyst and responsible for the whole D-Day forum. They also plan partnership strategies with potential partners in order to support the learning modules.
+        br
+        button.btn(onclick="restoreButtonChapters('#bandungTeam')") Back
+      .col.col-md-1
+    br
+    #jakartaTeam.row
+      .col.col-md-1
+      .col.col-md-10
+        h2 Jakarta Chapter
+        .row
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546766720/BoD%20Jakarta/finance.jpg' alt='Card image cap')
+            .card-body
+              h5.card-title Finance
+              p.card-text
+                | They manage StudentsCatalyst financial allocation. They monitor the financial situation and make annual financial report. They create and plan financial strategy to raise StudentsCatalyst funding. They increase funds by researching and targeting trustable partner whose criteria match the StudentsCatalyst aims and activities. They maintain and develop StudentsCatalyst external partnership.
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546766728/BoD%20Jakarta/HR.jpg' alt='Card image cap')
+            .card-body
+              h5.card-title Human Resource
+              p.card-text
+                | They schedule the operational stuff for BoD, students, and peers. They approach potential talents and monitor development of each students and peers. They develop the content of program with Operation.
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546766696/BoD%20Jakarta/president.png' alt='Card image cap')
+            .card-body
+              h5.card-title President
+              p.card-text
+                | He creates innovation and strategic planning for organization and improves the organization based on strategic plan, review, and iterate. She also manages and monitors the BoD and whole team to work based on StudentsCatalist value and strategy. She leads the team to make and deliver organization monthly report and review to the Board of Commisioner.
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546766704/BoD%20Jakarta/marketing.jpg' alt='Card image cap')
+            .card-body
+              h5.card-title Marketing
+              p.card-text
+                | They compose, create, and develop marketing content. They also develop new ideas and concept on advertisement and manage the StudentsCatalyst website. They make strategy to enlarge StudentsCatalyst market.
+          .card.card-team.mx-auto
+            .card-team-img-container
+              img.card-team-img-top.card-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546374188/BoD%20Jakarta/ops.jpg' alt='Card image cap')
+            .card-body
+              h5.card-title Operation
+              p.card-text
+                | They create comprehensive learning modules and strategies for StudentsCatalyst and responsible for the whole D-Day forum. They also plan partnership strategies with potential partners in order to support the learning modules.
+        br
+        button.btn(onclick="restoreButtonChapters('#jakartaTeam')") Back
+      .col.col-md-1
+  #peers.d-flex.flex-wrap.flex-row.justify-content-around.align-content-between
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546432274/Peers/immanuel-deo-min.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546432274/Peers/immanuel-deo-min.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Immanuel Deo - Executive Producer of TEDxITB, Engineering Intern at Schlumberger, Campus Ambassador of Schneider Electric Energy, Bank Indonesia National Scholarship Grantee
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546432202/Peers/michael-wijaya-min.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546432202/Peers/michael-wijaya-min.png' alt='Card image cap')
+        .card-body
+          h5.card-title Michael Wijaya - Giving Back Intern at BCG, CMO and Co-Founder of Ruang.co
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546431814/Peers/bethari-bintang.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546431814/Peers/bethari-bintang.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Bethari Bintang Oktavia - Research Associate at Kantar Millward Brown, XL Future Leaders Batch 5, Indonesian Delegates to AISEP, YLI Regional Wave 5
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771981/Peers/ilham-yudha.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771981/Peers/ilham-yudha.png' alt='Card image cap')
+        .card-body
+          h5.card-title Ilham Yudha - TEDx Local Event Organizer, TEDxITB License
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546772171/Peers/ni-luh-putu-lilis.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546772171/Peers/ni-luh-putu-lilis.png' alt='Card image cap')
+        .card-body
+          h5.card-title Ni Luh Putu Lilis - Young Leaders Indonesia Regional Wave 5
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773793/Peers/alifa-salsabila.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773793/Peers/alifa-salsabila.png' alt='Card image cap')
+        .card-body
+          h5.card-title Alifa Salsabila - Project Leader SEALNet Project Indonesia 2018
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773819/Peers/luca.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773819/Peers/luca.png' alt='Card image cap')
+        .card-body
+          h5.card-title Luca - Private Visitor for International Energy Agency, France
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773823/Peers/jofiandy-leonatha.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773823/Peers/jofiandy-leonatha.png' alt='Card image cap')
+        .card-body
+          h5.card-title Jofiandy Leonatha - International Astronomy Olympiad Medalist
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773841/Peers/filbert.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773841/Peers/filbert.png' alt='Card image cap')
+        .card-body
+          h5.card-title Filbert - Founder of Ayam Geprek CRISBAR
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773846/Peers/nathan.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773846/Peers/nathan.png' alt='Card image cap')
+        .card-body
+          h5.card-title Nathan - ITB Most Outstanding Student 2018
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773853/Peers/ginanjar-widya.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773853/Peers/ginanjar-widya.png' alt='Card image cap')
+        .card-body
+          h5.card-title Ginanjar Widya -  Most Valuable Delegate on Future Leader Summit 2018, Semarang
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773854/Peers/vincent-augusta.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546773854/Peers/vincent-augusta.png' alt='Card image cap')
+        .card-body
+          h5.card-title Vincent Augusta - Winner of Diponegoro Business Case Competition 2018
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771833/Peers/aryo-prakoso.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771833/Peers/aryo-prakoso.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Aryo Prakoso - Business Prasetiya Mulya 2015,  Best Business Creation Fashion Category 2016 Prasetiya Mulya, Best Business Development Fashion Category 2017 Prasetiya Mulya
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771837/Peers/kevin-chanry.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771837/Peers/kevin-chanry.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Kevin Chanry - Finance Prasetiya Mulya 2015, President of Finference 2018, President of Finance and Investment Society 2017/2018
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771844/Peers/dhamadi-gustanto.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771844/Peers/dhamadi-gustanto.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Dhamadi Gustanto - Management UI 2015, SHARE Scholarship Awardee, Project Officer of the 17th Indonesia Capital Market Student Studies
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771857/Peers/albert-eka.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771857/Peers/albert-eka.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Albert Eka - Management ITB 2014, Business Analyst at the Boston Consulting Group, Best Graduate SBM ITB 2017
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771867/Peers/jonathan-putera.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771867/Peers/jonathan-putera.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Jonathan Putera - Civil Engineering 2013, Projecet Engineer at Turner International, Delegate for Harvard Project for Asian and International Relations 2017
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771888/Peers/nicko-yosafat.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771888/Peers/nicko-yosafat.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Nicko Yosafat - Economics UI 2014, Research Fellow at OJK, Project Officer of Indonesia Economic Outlook 2016
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771929/Peers/evita-martha-dewi.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771929/Peers/evita-martha-dewi.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Evita Martha Dewi - Economics UI 2015, National Most Outstanding Student 2018, Ex-President of StudentsCatalyst Jabodetabek Chapter 2
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771930/Peers/leonardy-ryan.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771930/Peers/leonardy-ryan.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Leonardy Ryan - Accounting UI 2015, Runner Up of Deloitte Tax Challenge National Round, Most Outstanding Delegate in Asia-Pacific MUN Conference 2018 Sydney
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771930/Peers/sendy-jasmine.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771930/Peers/sendy-jasmine.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Sendy Jasmine - Economics UI 2017, 1st Place in Indonesian Debating Competition, Best Delegate of UNCSW in Asia World MUN 2018 South Korea
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771936/Peers/nathanael-abednego.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771936/Peers/nathanael-abednego.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Nathanael Abednego - Accounting UI 2015, Astra 1st Winner of Gadjah Mada Business Case Competition
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771947/Peers/rio-f-kiantara.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771947/Peers/rio-f-kiantara.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Rio F. Kiantara - Accounting UI 2017, CFO Twiggsy.com, Co-owner Dreams Waffle and Crepes
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546776609/Peers/aldo-ramadhan.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546776609/Peers/aldo-ramadhan.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Aldo Ramadhan - Management UI 2017, Founder of Calnomy and Jami applied technology, 2nd Place Pitch First 2018 National Competition, Universitas Prasetiya Mulya
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771832/Peers/darling-febriani.png')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546771832/Peers/darling-febriani.png' alt='Card image cap')
+        .card-body
+          h5.card-title
+            | Darling Febriani - Microbiology ITB 2014, 1st National Runner-Up of Sampoerna Finance Day, 1st National Runner-Up of Unilever Future Leaders League 2017
+  #founders.container-fluid.text-center
+    br
+    h2 WE BELIEVE THE IDEAS TO UNLEASH UNIVERSITY STUDENTS POTENTIAL
+    br
+    br
+    br
+    br
+    p
+      | We believe that there is so much untapped potential in university students. Many university students do not have a clear plan for their university journey which causes many students to be unproductive. StudentsCatalyst is a network-based platform to solve this problem.
+    br
+    p
+      | &ldquo;We believe Indonesia youth especially university students have bigger potential than we have ever imagined.&rdquo;
+    br
+#mentorship.container-fluid.pt-5.text-center
+  h2 MENTORSHIP
+  h4 We connect all members and alumni to other members who are eager to do mentoring
+#gallery.container-fluid.pt-5.text-center
+  h2 GALLERY
+  br
+  .d-flex.flex-wrap.justify-content-around.align-content-around
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434336/Albums/membership.jpg')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434336/Albums/membership.jpg' alt='Card image cap')
+        .card-body
+          h5.card-title Membership
+          p.card-text
+            | We encourage you to develop yourself and be a leader, entrepreneur, and initiator! We provide three kinds of membership which are students, peers, and board of director.
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434336/Albums/forums.jpg')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434336/Albums/forums.jpg' alt='Card image cap')
+        .card-body
+          h5.card-title Forums
+          p.card-text
+            | Inspirational talk and workshop series from inspirational students and professionals.
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/on-demand-talk.jpg')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/on-demand-talk.jpg' alt='Card image cap')
+        .card-body
+          h5.card-title On Demand Talk
+          p.card-text Sharing session from high quality individuals through an informal session.
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/peer-coaching.jpg')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/peer-coaching.jpg' alt='Card image cap')
+        .card-body
+          h5.card-title Peer Coaching
+          p.card-text Private mentorship and sharing with the peers
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/project.jpg')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/project.jpg' alt='Card image cap')
+        .card-body
+          h5.card-title Project
+          p.card-text
+            | Student project to provide students with hands-on experience in developing themselves and making impact.
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434336/Albums/graduation.jpg')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434336/Albums/graduation.jpg' alt='Card image cap')
+        .card-body
+          h5.card-title Graduation
+          p.card-text
+            | We highly valued our students by arranging a graduation day at the end of the chapter and awarding time.
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/external-forum.jpg')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/external-forum.jpg' alt='Card image cap')
+        .card-body
+          h5.card-title External Forum
+          p.card-text
+            | We also want to share our knowledge and inspirational talk to public in the external forum.
+    a.no-text-decoration(data-fancybox='gallery' href='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/our-members.jpg')
+      .card.card-gallery.mx-auto
+        img.card-img-top.card-gallery-img-top(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546434337/Albums/our-members.jpg' alt='Card image cap')
+        .card-body
+          h5.card-title Our Members
+          p.card-text
+            | We work hands in hands to give the students best experiences. Most of our alumni who currently have job role in a a top-notch position are gladly welcome you and willing to connect with the students.
+#partnernsponsor
+  h2 PARTNERSHIP AND SPONSORSHIP
+  br
+  h3
+    | We are open to be proposed on media partner and other form of partnership! Just submit your proposal through this address below!
+  br
+  button.btn.btn-dark(onclick="window.open('mailto:studentscatalyst@gmail.com')") studentscatalyst@gmail.com
+#contact.container-fluid.text-left.py-2.px-auto.pt-5
+  .row
+    .col.col-md-2
+    .col.col-md-4.overflow-hidden
+      img(src='https://lh3.googleusercontent.com/mFw8RZQLsXlqFVMlHPXDZOFWTtdu4J4yUkZ-am0BLjQ5E7HQp0ECeqe3ewAsuR1P7zFqVD7w03bqqB5RA4U')
+      br
+      br
+      br
+    .col.col-md-4.justify-content-right.text-right
+      h2 Contact Us
+      .row-reverse.justify-content-right.text-right
+        a(href='https://www.instagram.com/studentscatalyst/')
+          img(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546768621/Icons/icon-instagram-white.png')
+        a(href='https://www.linkedin.com/in/students-catalyst-b90171111/')
+          img(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546768615/Icons/icon-linkedin-white.png')
+        a(href='mailto:studentscatalyst@gmail.com')
+          img(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546768615/Icons/icon-email-white.png')
+        a(href='http://line.me/ti/p/~@cbb4789e')
+          img(src='https://res.cloudinary.com/dqkve7rdi/image/upload/v1546768615/Icons/icon-line-white.png')
+    // Modals
+    #modalWhatWeDo1.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLongTitle.modal-title Project
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            p
+              | Several projects will be distributed in order to expose students to practical experience. Project will help students to practice knowledge they have from forums we hold. This is also an amazing opportunity to experience working with other students in purpose.
+          .modal-footer
+            button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+    #modalWhatWeDo2.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLongTitle.modal-title Peer-based Coaching
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            p
+              | To make the programs more impactful, strengthen the network, and make it controllable, StudentsCatalyst has a peer-to-peer coaching, current members-final year students are paired with the new members as peers to share, inspire, and help each other to build their path and achieve more.
+            p
+              | Simply, this peers coaching is also to create a strong bond between new members and senior members, connect new-and-old members with same interests, to share each other aspiration and experiences, track each other performance, hopefully can be beneficial for their own personal development in reaching their targets-achieve more. The peers are hoped to also give bigger picture of StudentsCatalyst and its goals, and also connect new members with the best-person-to-ask, based on their target.
+            p
+              | As a note, this peer-to-peer coaching is a two way interaction, because we believe that there&rsquo;s no &ldquo;seniors are better&rdquo; but we try to gather the brightest final year students, that have stories and inspiration to share, as the peers!
+          .modal-footer
+            button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+    #modalWhatWeDo3.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLongTitle.modal-title Internal Forum
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            p
+              | Inspirative talks from students with many topics, ranging from professionals, founders and initiators. We conduct workshops and seminar to acknowledge students from top performing individual speakers. These speakers have done so much as a student before achieving what they are known today.
+          .modal-footer
+            button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+    #modalWhatWeDo4.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLongTitle.modal-title Sharing Session
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            p
+              | We also have internal monthly sharing, with topics varied-based on request and specialization of the speakers. The sharing session is basically from our members, that have special skills to be shared to other members, like problem solving skills from our members that are already hired as a consultant from worldwide top tier consulting firm, stocks market from our members who have succeed trading in FOREX, and manymore. We offer this as a facility for members who want to learn more
+          .modal-footer
+            button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+    #modalWhatWeDo5.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLongTitle.modal-title External Forum
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            p
+              | This session is about broaden the network by gathering NGO and local communities to share their activities, stories and interests to other. Non-member audiences are gladly welcomed to experience our forum.
+          .modal-footer
+            button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+    #modalWhatWeDo6.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLongTitle.modal-title Web Based Mentor
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            p Connect all members and alumni to other members who are eager to do mentoring.
+          .modal-footer
+            button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://unpkg.com/popper.js/dist/umd/popper.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-visible/1.2.0/jquery.visible.min.js')
+    script(src='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js')
+    script(src='/js/home.js')

@@ -1,0 +1,314 @@
+body {
+    font-family:Montserrat;
+  }
+  .bg-black {
+    background-color : #000;
+  }
+  
+  .carousel-caption {
+    text-align:left;
+    top: 50%;
+  transform: translateY(-50%);
+    bottom: initial;
+    max-width:340px;
+  }
+  
+  .carousel-caption img {
+    background-color: rgba(0,0,0,1);
+    opacity:1 !important;
+  }
+  
+  .btn-round {
+    border-radius : 18px;
+  }
+  
+  .about-quotes {
+    max-width:800px;
+  }
+  
+  .about-paragraph {
+    max-width: 800px;
+    text-align:justify;
+  }
+  
+  #whatwedo-content {
+    max-width: 80%;
+  }
+  
+  .what-we-do-texts {
+    max-width:80%;
+  }
+  
+  .card-text, .card-title {
+    font-size:10px;
+    text-align:justify;
+  }
+  
+  .card-gallery-img-top {
+    object-fit:cover;
+    height:20rem;
+  }
+  .card-gallery {
+    width:20rem;
+    position: relative;
+    top: 0;
+    transition: top ease 0.5s;
+  }
+  
+  .card-gallery:hover{ position: relative; 
+               top: -10px;} 
+  
+  .card-team-img-top {
+    object-fit:cover;
+    height:21rem;  
+  }
+  
+  img.card-team-img-top {
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1);
+  }
+  
+  .card-team {
+    max-width:14rem;  
+  }
+  
+  .card-team-img-container {
+    overflow:hidden;
+  }
+  
+  .btn-chapter {
+  
+    width:49%;
+    height:100%;
+    font-size:24pt;
+  }
+  
+  .btn-chapter label {
+    font-size:.5em;
+  }
+  .btn-chapter-bandung {
+    float:left;
+    margin-right:1%;
+  }
+  
+  .btn-chapter-jakarta {
+    float:left;
+    margin-left:1%;
+  }
+  
+  .row-chapters {
+    height:336px;
+    overflow:hidden;
+    display:flex;
+  }
+  
+  #contact{
+    background-color : rgb(0,0,0);  
+    color:white;
+    
+  }
+  
+  #contact h2 {
+    color : #FFF;
+  }
+  
+  #contact p {
+    color : #FFF;
+  }
+  
+  .overflow-hidden {
+    overflow:hidden;
+  }
+  #contact > div > div > img {
+    width:100%;
+  }
+  #contact > div > div > div > a  {
+    margin-left: 10px;
+  }
+  #contact > div > div > div > a > img {
+    width:24px;
+    
+    min-height:20px;
+  }
+  .card-what-we-do-img-container {
+    object-fit:scale-down;
+  }
+  .card-whatwedo-img-container {
+    object-fit:scale-down;
+  }
+  .card-whatwedo-img-top {
+    max-width:100%;
+    height:auto;
+    border-top-right-radius : calc(.25rem - 1px);
+    border-top-left-radius : calc(.25rem - 1px);
+  }
+  
+  .card-whatwedo {
+    padding-top : 10px;
+    padding-bottom : 10px;
+    width: 10rem;
+    max-width:10rem;  
+    position: relative; 
+    top: 0px;
+    transition: top ease 0.5s;
+  }
+  
+  .card-whatwedo:hover{
+    position: relative; 
+    top: -10px;
+  }
+  
+  .card-whatwedo button {
+    position:absolute;
+    bottom:1rem;
+    left:3rem;
+  }
+  
+  #carouselRecommendation {
+    background-color:rgb(60,60,60);
+    color:white;
+  }
+  
+  #carouselRecommendation img {
+    height:300px;
+    background-color:rgb(60,60,60);
+    color:white;
+  }
+  
+  .carouselRecommendation-caption {
+    top: 50%;
+  transform: translateY(-70%);
+    bottom: initial;
+    font-family:Montserrat;
+  }
+  
+  #carouselTestimony {
+    height:630px;
+    background-color:rgb(236,236,236);
+    color:black;
+  }
+  
+  #carouselTestimony img {
+    height:300px;
+    background-color:rgb(236,236,236);
+    color:black;
+  }
+  
+  .carouselTestimony-caption {
+    top: 0%;
+  transform: translateY(-50%);
+    bottom: initial;
+    font-family:Montserrat;
+  }
+  
+  .carousel-control-prev-icon-black,
+  .carousel-control-next-icon-black {
+    height: 100px;
+    width: 100px;
+    outline: black;
+    background-size: 100%, 100%;
+    background-image: none;
+  }
+  
+  .carousel-control-next-icon-black:after
+  {
+    content: '>';
+    font-size: 55px;
+    color: black;
+  }
+  
+  .carousel-control-prev-icon-black:after {
+    content: '<';
+    font-size: 55px;
+    color: black;
+  }
+  
+  li.active {
+    background-color:black; 
+  }
+  
+  #founders {
+    padding : 3rem;
+    max-width:900px;
+    background:linear-gradient(
+        rgba(0, 0, 0, 0.45), 
+        rgba(0, 0, 0, 0.45)
+      ),
+      
+      url("https://lh3.googleusercontent.com/jXfI-yyt9fXf3uOL2xE7LCiba4uB2qpWKoLNkbHH9oTKPfckfOGtW0voTt35Prk4XnsEVBl_iXbfkKth=s1600");
+  
+    background-repeat: no-repeat;
+    background-size : cover;
+    color:white;
+    border-radius:10px;
+  }
+  #founders img {
+    opacity:0.9;  
+  }
+  
+  #team {
+    background-color:rgba(0,0,0,0.1);
+    margin-top:50px;
+  }
+  
+  #btn-chapter-bandung {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    background :linear-gradient(
+        rgba(255, 255, 255, 0.45), 
+        rgba(255, 255, 255, 0.45)
+      ),
+      url("https://res.cloudinary.com/dqkve7rdi/image/upload/v1546374188/BoD%20Bandung/All_the_BoD.jpg");
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position: center; 
+  }
+  
+  #btn-chapter-jakarta {
+  
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    
+    background :linear-gradient(
+        rgba(255, 255, 255, 0.45), 
+        rgba(255, 255, 255, 0.45)
+      ),
+      url("https://res.cloudinary.com/dqkve7rdi/image/upload/v1546767808/BoD%20Jakarta/bod.jpg");
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position: center;
+  }
+  
+  #carousel .carousel-inner {
+    background-color:black;
+  }
+  
+  #carousel img {
+    opacity:0.5;
+  }
+  
+  #gallery a {
+     text-decoration: none; 
+  }
+  
+  #partnernsponsor {
+    background-color:rgba(220,220,220,.6);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-content:space-between;
+    text-align:center;
+    padding-top:50px;
+    padding-bottom:50px;
+    padding-left:200px;
+    padding-right:200px;
+    margin-top:50px;
+  }
+  
+  img.contact-icon {
+    max-height:50px;
+  }
+  
+  .no-text-decoration {
+    text-decoration:none;
+    color:black !important;
+  }

@@ -1,0 +1,43 @@
+extends layout
+
+block cover-main  
+  if (message)
+    div(class="alert alert-warning alert-dismissible fade show" role="alert")
+      span #{message}
+      button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+        span(aria-hidden="true") &times;
+  if (user)
+    if (typeof success !== "undefined")
+      if (success === "true")
+        div(class="alert alert-success alert-dismissible fade show" role="alert")
+          label Request mentoring berhasil
+          button(type="button" class="close" data-dismiss="alert" aria-label="close")
+            span(aria-hidden="true") &times;
+      else if (success === "false")
+        div(class="alert alert-danger alert-dismissible fade show" role="alert")
+          label Request mentoring gagal
+            button(type="button" class="close" data-dismiss="alert" aria-label="close")
+              span(aria-hidden="true") &times;
+    h1 List Mentor
+    br
+    each collection in collections
+      div(class="row")
+        div(class="col-md-3")
+        div(class="col-md-3")
+          h4 #{collection.username} 
+          h4 #{collection.email}
+        div(class="col-md-3")
+          form(action="/request/"+collection._id method="post")
+            div(class="form-group")
+                label(for="tanggal") Tanggal Mentoring
+                input(type="date" class="form-control" id="tanggal" name="tanggal")
+            div(class="form-group")
+                label(for="waktuAwal") Jam mulai
+                input(type="time" class="form-control" id="waktuAwal" name="waktuAwal")
+            button(type="submit" class="btn btn-primary") Request Mentoring
+        div(class="col-md-3")
+        
+        
+      
+        
+          

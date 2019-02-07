@@ -8,12 +8,8 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const cron = require('node-cron');
 
 const routes = require('./routes/index');
-const users = require('./routes/users');
-
-const booking = require('./cron/booking');
 
 const app = express();
 
@@ -48,7 +44,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-let mongoDbUri = (process.env.MONGODB_URI || "mongodb://localhost:27017/bk");
+let mongoDbUri = (process.env.MONGODB_URI || "mongodb://localhost:27017/sc");
 mongoose.connect(mongoDbUri,{ useNewUrlParser: true });
 
 
@@ -82,10 +78,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-cron.schedule('*/1 * * * * *', function(){
-  booking();
-});
-
 
 module.exports = app;
