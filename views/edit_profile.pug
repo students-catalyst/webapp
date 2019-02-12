@@ -7,15 +7,18 @@ block cover-main
       button(type="button" class="close" data-dismiss="alert" aria-label="Close")
         span(aria-hidden="true") &times;
   if (user)
-    form(action="/profile/edit" method="post" )
+    a(class="btn btn-secondary" href="/member")
+      span(class="fa fa-arrow-left") Back to member page
+    br
+    br
+    form(action="/profile/edit" method="post" enctype="multipart/form-data" )
       div(class="row")
         div(class="col-md-1")
         div(class="col-md-3")
-          img(src="#" alt="profile image")
+          img(src=profPicUrl alt="profile image" onerror="this.src='https://res.cloudinary.com/djpvro5sh/image/upload/v1545989513/profpic/avatar.png'")
         div(class="col-md-7 text-left")        
           h3 Nama Lengkap : 
-          input(type="text" value=user.fullname)
-          h3 #{user.role}
+          input(type="text" value=user.fullname name="fullname")
           h3 Email : #{user.email}
           br
           h3 Upload Foto :

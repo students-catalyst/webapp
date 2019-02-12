@@ -121,3 +121,6 @@ body {
   color: rgba(100, 100, 100, .5);
 }
 
+.mentor {
+  overflow-x: scroll;
+}

@@ -18,15 +18,20 @@ block cover-main
           label Request mentoring gagal
             button(type="button" class="close" data-dismiss="alert" aria-label="close")
               span(aria-hidden="true") &times;
+    a(class="btn btn-secondary" href="/member")
+      span(class="fa fa-arrow-left") Back to member page
+    br
+    br
     h1 List Mentor
     br
     each collection in collections
       div(class="row")
-        div(class="col-md-3")
-        div(class="col-md-3")
+        div(class="col-md-2")
+        div(class="col-md-4 mentor")
+          img(src="https://res.cloudinary.com/djpvro5sh/image/upload/v1545989513/profpic/"+collection._id+".png" alt="profile image" onerror="this.src='https://res.cloudinary.com/djpvro5sh/image/upload/v1545989513/profpic/avatar.png'")
           h4 #{collection.username} 
           h4 #{collection.email}
-        div(class="col-md-3")
+        div(class="col-md-4")
           form(action="/request/"+collection._id method="post")
             div(class="form-group")
                 label(for="tanggal") Tanggal Mentoring
@@ -35,7 +40,7 @@ block cover-main
                 label(for="waktuAwal") Jam mulai
                 input(type="time" class="form-control" id="waktuAwal" name="waktuAwal")
             button(type="submit" class="btn btn-primary") Request Mentoring
-        div(class="col-md-3")
+        div(class="col-md-2")
         
         
       

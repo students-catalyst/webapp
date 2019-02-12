@@ -8,12 +8,14 @@ const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
 const homeUrl = (process.env.homeUrl || 'http://localhost:8080');
 const {google} = require('googleapis');
+const formidable = require('formidable');
 
 cloudinary.config({
   cloud_name: 'djpvro5sh',
   api_key: '791419568376272',
   api_secret: 'Wy8CCQN8rre2XtxpiJh9I3Yja2Q'
 });
+
 const storage = cloudinaryStorage({
   cloudinary: cloudinary,
   filename: function (req, file, cb) {
@@ -28,25 +30,47 @@ const storage = cloudinaryStorage({
 let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'mahdiarnaufal@gmail.com',
-    pass: 'mahdiarnaufal13'
+    user: 'studentscatalyst@gmail.com',
+    pass: 'studentscatalyst2018'
   }
 });
 
 router.get('/member', function (req, res) {
+  
   if (req.user) {
-    res.render('member', { title: "StudentsCatalyst - Member Area", user : req.user });
+    let url;
+    cloudinary.v2.api.resources({ type: 'upload', prefix: 'profpic/' }, function(error, result){
+      if (error) {
+        console.log(error);
+      } else {
+        result.resources.forEach((el) => {
+          console.log(el.public_id)
+          let comparator = "profpic/" + req.user._id
+          if (el.public_id === comparator) {
+            url = el.secure_url;
+            res.render('member', { title: "StudentsCatalyst - Member Area", user : req.user, profPicUrl : url});
+          }        
+        });      
+      }
+    });    
   } else {
     res.render('member', { title: "StudentsCatalyst - Member Area", user : req.user, message : req.body.message });
   }
 });
 
-router.get('/register', function(req, res) {
-    res.render('register', { title: "StudentsCatalyst" });
+router.get('/register', function(req, res) {  
+  if (req.user && req.user.role === "bod") {
+    res.render('register', { title: "StudentsCatalyst - Registration Form", user : req.user });
+  } else {
+    res.render('register', { title: "StudentsCatalyst - Registration Form"});
+  }
+    
 });
 
 router.post('/register', function(req, res) {
-    Account.register(new Account({ username : req.body.username, email: req.body.email, nik: req.body.nik, role : "user" }), req.body.password, function(err, account) {
+  if (req.user && req.user.role === "bod") {
+    let password = req.body.email + "u" + req.body.username
+    Account.register(new Account({ username : req.body.username, email: req.body.email, role : req.body.role }), password, function(err, account) {
       let message = "";
       if (err || (req.body.password !== req.body.passwordConfirm)) {
         if (req.body.password !== req.body.passwordConfirm) {
@@ -57,19 +81,19 @@ router.post('/register', function(req, res) {
         return res.render('register', { title: "StudentsCatalyst", message : message, account : account });
       }
       if (message.length === 0) {
-        passport.authenticate('local')(req, res, function () {
-            res.redirect('/member');
-        });
+        res.redirect('/register');
       }
     });
+  } else {
+    res.redirect('/member');
+  }
 });
 
 router.get('/login', function(req, res) {
-    res.render('login', {  title: "StudentsCatalyst", user : req.user });
+    res.render('login', {  title: "StudentsCatalyst - Member Area", user : req.user });
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res) {
-    res.redirect('/member');
+router.post('/login', passport.authenticate('local', { successRedirect: '/member', failureRedirect: '/login' }), function(req, res) {
 });
 
 router.get('/logout', function(req, res) {
@@ -100,7 +124,21 @@ router.get('/profile/edit', function (req, res) {
   if (!req.user) {
     res.redirect('/login'); 
   } else {
-    res.render('edit_profile', { title: "Edit Profile", user : req.user, message : req.body.message }); 
+    let url;
+    cloudinary.v2.api.resources({ type: 'upload', prefix: 'profpic/' }, function(error, result){
+      if (error) {
+        res.render('edit_profile', { title: "Edit Profile", user : req.user, message : req.body.message }); 
+      } else {
+        result.resources.forEach((el) => {
+          console.log(el.public_id)
+          let comparator = "profpic/" + req.user._id
+          if (el.public_id === comparator) {
+            url = el.secure_url;
+            res.render('edit_profile', { title: "Edit Profile", user : req.user, message : req.body.message, profPicUrl : url }); 
+          }        
+        });      
+      }
+    });
   }
 });
 
@@ -108,22 +146,26 @@ router.post('/profile/edit', (req, res) => {
   if (!req.user) {
     res.redirect('/login'); 
   } else {
-    cloudinary.v2.uploader.upload(req.files.path,
-      {public_id: req.user._id, invalidate: true},
-      function(error, result){console.log(result, error)});
-    console.log(req.file) // to see what is returned to you
-    
-    res.redirect('/profile'); 
-  }
-      
+    if (req.body.fullname) {
+        Account.findOneAndUpdate({ _id : req.user._id }, { $set: { fullname: req.body.fullname }}, { new: true }, (err,res) => {
+          if (err) {
+            
+          } else {
+            
+          }
+        });
+    }
+    let form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) {
+      console.log(files.image.path)
+      cloudinary.v2.uploader.upload(files.image.path,
+        {folder: "/profpic/",public_id: req.user._id, invalidate: true},
+        function(error, result){console.log(result, error)});
     });
-
-router.get('/profile', function (req, res) {
-  if (!req.user) {
-    res.redirect('/login'); 
-  } else {
-    res.render('profile', { title: "Profile", user : req.user, message : req.body.message }); 
+      
   }
+    
+  res.redirect('/member'); 
 });
 
 

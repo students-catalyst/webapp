@@ -1,17 +1,13 @@
 extends layout
 
-block cover-header  
-  h3(class="masthead-brand")
-    a(class="nav-link" href="/")
-      span(class="fas fa-arrow-left")
-      |  Back
-  nav(class="nav nav-masthead justify-content-center")
-    a(class="nav-link" href="/login") Login
-    a(class="nav-link" href="/register") Register
-
 block cover-main
     if (message)
         div(class="alert alert-danger" role="alert") #{message}
+
+    a(class="btn btn-secondary" href="/member")
+      span(class="fa fa-arrow-left") Back to member page
+    br
+    br
             
     form(action="./register" method="post")
         div(class="form-group")
@@ -19,11 +15,13 @@ block cover-main
             input(type="text" class="form-control" id="usernameInput" placeholder="Username" name="username")
         div(class="form-group")
             label(for="email") Email
-            input(type="email" class="form-control" id="emailInput" placeholder="Email" name="email")
+            input(type="email" class="form-control" id="emailInput" placeholder="Email" name="email")        
         div(class="form-group")
-            label(for="password") Password
-            input(type="password" class="form-control" id="passwordInput" placeholder="Password" name="password")
-        div(class="form-group")
-            label(for="passwordConfirm") Konfirmasi Password
-            input(type="password" class="form-control" id="passwordConfirmInput2" placeholder="Konfirmasi Password" name="passwordConfirm")
+            label(for="role") Role
+            br
+            select(name='role')
+                option(value='students') students
+                option(value='mentor') mentor
+                option(value='bod') bod
+
         button(type="submit" class="btn btn-primary") Register

@@ -7,8 +7,37 @@ block cover-main
       button(type="button" class="close" data-dismiss="alert" aria-label="Close")
         span(aria-hidden="true") &times;
   if (user)
-    h1 Selamat datang #{user.username}!
-    a(href="/requests")
-      h2 Daftar history request mentoring
-    a(href="/mentorship")
-      h2 List mentor
+    h1 Selamat datang #{user.fullname || user.username}!
+    div(class="row")
+      div(class="col-md-1")
+      div(class="col-md-3")
+        img(src=profPicUrl alt="profile image" onerror="this.src='https://res.cloudinary.com/djpvro5sh/image/upload/v1545989513/profpic/avatar.png'")
+      div(class="col-md-7 text-left")
+        - var fullname = "{Tidak ada nama lengkap}"
+        if (!user.fullname)
+          div(class="alert alert-danger fade show" role="alert")
+            span Isi nama lengkap anda di halaman "Edit Profile"
+        else
+          h3 Nama : #{user.fullname || fullname}
+        if (user.role ===  "students" || user.role === "mentor")
+          span(class="badge badge-primary") #{user.role}
+        else if(user.role ===  "admin")
+          span(class="badge badge-warning") #{user.role}
+        else if(user.role ===  "bod")
+          span(class="badge badge-success") #{user.role}
+        br
+        br
+        h3 Email : #{user.email}        
+      div(class="col-md-1")
+    if (user.role === "students" || user.role === "admin")
+      br    
+      a(href="/requests") Daftar history request mentoring
+      br
+      a(href="/mentorship") List mentor
+      br
+    a(href="/profile/edit") Edit Profile     
+    if (user.role ===  "bod" || user.role === "admin")
+      br
+      a(href="/register") Daftarkan user
+  else
+    h5 Klik login di pojok kanan atas untuk masuk
