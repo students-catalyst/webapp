@@ -9,6 +9,7 @@ const cloudinaryStorage = require("multer-storage-cloudinary");
 const homeUrl = (process.env.homeUrl || 'http://localhost:8080');
 const {google} = require('googleapis');
 const formidable = require('formidable');
+const crypto = require('crypto');
 
 cloudinary.config({
   cloud_name: 'djpvro5sh',
@@ -47,10 +48,10 @@ router.get('/member', function (req, res) {
           console.log(el.public_id)
           let comparator = "profpic/" + req.user._id
           if (el.public_id === comparator) {
-            url = el.secure_url;
-            res.render('member', { title: "StudentsCatalyst - Member Area", user : req.user, profPicUrl : url});
+            url = el.secure_url;            
           }        
         });      
+        res.render('member', { title: "StudentsCatalyst - Member Area", user : req.user, profPicUrl : url||""});
       }
     });    
   } else {
@@ -68,25 +69,31 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
-  if (req.user && req.user.role === "bod") {
-    let password = req.body.email + "u" + req.body.username
-    Account.register(new Account({ username : req.body.username, email: req.body.email, role : req.body.role }), password, function(err, account) {
-      let message = "";
-      if (err || (req.body.password !== req.body.passwordConfirm)) {
-        if (req.body.password !== req.body.passwordConfirm) {
-          message = message.concat("Password dan konfirmasinya harus sesuai\n");
-        }
-        message = message.concat(err + "\n");        
+  let password = '';
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
 
-        return res.render('register', { title: "StudentsCatalyst", message : message, account : account });
-      }
-      if (message.length === 0) {
-        res.redirect('/register');
-      }
-    });
-  } else {
-    res.redirect('/member');
-  }
+  for (var i = 0; i < 10; i++)
+    password += possible.charAt(Math.floor(Math.random() * possible.length));
+  
+  Account.register(new Account({ username : req.body.username, email: req.body.email, role : req.body.role }), password, function(err, account) {
+    let message = "";
+    if (message.length === 0) {
+        let html = `Anda telah diundang ke dalam website studentscatalyst<br>login ke https://students-catalyst-web.herokuapp.com/login dengan data di bawah ini.<br> username : ${req.body.username}<br> password : ${password}`
+          let mailOptions = {
+            from: 'studentscatalyst@gmail.com',
+            to: req.body.email,
+            subject: 'Undangan dari StudentsCatalyst Web',
+            html: html,
+          };
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              res.redirect('/register');
+            } else {
+              res.redirect('/register');
+            }
+          });         
+    }
+  });
 });
 
 router.get('/login', function(req, res) {
